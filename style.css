@@ -28,3 +28,18 @@ body {
 .temp {
     flex-direction: column;
 }
+
+.degree {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.degree span{
+    margin: 10px;
+    font-size: 30px;
+}
+
+.degree h2{
+    font-size: 30px;
+}
