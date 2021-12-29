@@ -2,17 +2,13 @@ const API_KEY = '4f298c2ad69a4d5ab0d55f013858af47';
 
 window.addEventListener('load', () => {
 
-    let longitude;
-    let latitude;
-
-
     if (navigator.geolocation) { //if the user allows geolocation when they open the webpage, run code ->
 
         navigator.geolocation.getCurrentPosition(position => {
             console.log(position);
 
-            longitude = position.coords.longitude;
-            latitude = position.coords.latitude;
+            const longitude = position.coords.longitude;
+            const latitude = position.coords.latitude;
 
             const apiCall = `https://api.weatherbit.io/v2.0/current?lat=${latitude}&lon=${longitude}&key=${API_KEY}`;
 
@@ -22,6 +18,12 @@ window.addEventListener('load', () => {
                     return information.json(); //returns data as text object
 
                 }).then(information => {
+
+                    
+                    const windSpeedKM = (information.data[0].wind_spd).toString();
+                    document.getElementById("windSpeed").innerHTML = "Wind speed: " + windSpeedKM + "km/h";
+
+
                     const icon = (information.data[0].weather.icon).toString();
 
                     const temperature = (information.data[0].app_temp).toString();
@@ -36,7 +38,8 @@ window.addEventListener('load', () => {
                     console.log(weatherInfo);
                     document.getElementById("weatherDescription").innerHTML = weatherInfo;
 
-                    setIcons(icon, document.querySelector('.icon1'));
+                    setIcon(icon, document.querySelector('.icon1'));
+                    setWindIcon(document.querySelector('.windIcon'))
 
                 })
         })
@@ -45,7 +48,7 @@ window.addEventListener('load', () => {
     //light drizzle - moderate rain = "r01d" || "r01n";
     //shower rain = "r05d" || "r05n";
     //snowing = "s02d" || "s02n"
-    function setIcons(icon, iconID) {
+    function setIcon(icon, iconID) {
         const icons = new Skycons({ color: "blanchedalmond" });
         icons.play();
         if (icon === "r01n" || icon === "r01d" || icon === "r06d" || icon === "r06n" || icon === "r04d" || icon === "r04n"
@@ -79,5 +82,11 @@ window.addEventListener('load', () => {
         } else {
             return icons.set(iconID, Skycons.PARTLY_CLOUDY_DAY); //if icon is not recognized, default to cloudy icon
         }
+    }
+
+    function setWindIcon(iconID) {
+        const wind = new Skycons({ color: "blanchedalmond" });
+        wind.play();
+        return wind.set(iconID, Skycons.WIND);
     }
 })

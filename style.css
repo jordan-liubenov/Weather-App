@@ -4,6 +4,13 @@
     box-sizing: border-box;
 }
 
+.head {
+    font-size: 30px;
+    justify-content: center;
+    flex-direction: column;
+    margin-bottom: 40px;
+}
+
 body {
     height: 100vh;
     display: flex;
@@ -17,7 +24,9 @@ body {
 
 .area,
 .temp {
-    height: 30vh;
+    background:rgba(97, 55, 131, 0.459);
+    border-radius: 20px;
+    height: 20vh;
     width: 50%;
     display: flex;
     justify-content: space-around;
@@ -26,27 +35,49 @@ body {
 }
 
 .temp {
+    background:rgba(124, 55, 131, 0.459);
     flex-direction: column;
+    
 }
-
 
 
 .degree {
     display: flex;
     align-items: center;
     cursor: pointer;
-
+    justify-content: space-around;
 }
 
-.degree on:hover{
-    background-color: brown;
-}
-
-.degree span{
-    margin: 10px;
-    font-size: 30px;
-}
 
 .degree h2{
-    font-size: 30px;
+    font-size: 50px;
+    justify-content: space-around;
+    align-items: center;
+    display: flex;
 }
+
+.descript {
+    font-size: 25px;
+}
+
+
+.wind {
+    background:rgba(124, 55, 131, 0.459);
+    display: flex;
+    border-radius: 20px;
+    justify-content: space-around;
+    align-items: center;
+    background:rgba(97, 55, 131, 0.459);
+    width: 50%;
+    height: 20vh;
+}
+
+
+
+.windTest {
+    display:block;
+    justify-content: center;
+    align-items: center;
+}
+
+
