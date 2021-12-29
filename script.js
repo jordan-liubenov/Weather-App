@@ -24,6 +24,8 @@ window.addEventListener('load', () => {
                     return information.json(); //returns data as text object
 
                 }).then(information => {
+                    const icon = (information.data[0].weather.icon).toString();
+
                     const temperature = (information.data[0].app_temp).toString();
                     document.getElementById("displayDegree").innerHTML = temperature;
 
@@ -35,7 +37,24 @@ window.addEventListener('load', () => {
                     const weatherInfo = (information.data[0].weather.description).toString()
                     console.log(weatherInfo);
                     document.getElementById("weatherDescription").innerHTML = weatherInfo;
+
+                    setIcons(icon, document.querySelector('.icon1'));
+
+                    console.log(icon);
                 })
         })
+    }
+
+    //light drizzle - moderate rain = "r01d" || "r01n";
+    //shower rain = "r05d" || "r05n";
+    //snowing = "s02d" || "s02n"
+    function setIcons(icon, iconID){
+        const icons = new Skycons({color:"white"});
+        icons.play();
+        if(icon === "r01n" || icon === "r01d"){
+            return icons.set(iconID, Skycons.RAIN);
+            
+        }
+        
     }
 })
