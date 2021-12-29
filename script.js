@@ -19,10 +19,8 @@ window.addEventListener('load', () => {
 
                 }).then(information => {
 
-                    
                     const windSpeedKM = (information.data[0].wind_spd).toString();
                     document.getElementById("windSpeed").innerHTML = "Wind speed: " + windSpeedKM + "km/h";
-
 
                     const icon = (information.data[0].weather.icon).toString();
 
