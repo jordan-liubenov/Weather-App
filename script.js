@@ -31,11 +31,10 @@ window.addEventListener('load', () => {
                     document.getElementById("areaZone").innerHTML = areaZone;
 
                     console.log(information);
-                    console.log(information.data[0].timezone);
-
-                    console.log(temperature + 'C° degrees');
-                    console.log(typeof(temperature));
-
+                    
+                    const weatherInfo = (information.data[0].weather.description).toString()
+                    console.log(weatherInfo);
+                    document.getElementById("weatherDescription").innerHTML = weatherInfo;
                 })
         })
     }
