@@ -1,4 +1,4 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -13,4 +13,18 @@ body {
     background: linear-gradient(rgb(143, 77, 219),rgb(76, 94, 199));
     font-family: "Readex Pro";
     color: blanchedalmond;
+}
+
+.area,
+.temp {
+    height: 30vh;
+    width: 50%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+}
+
+.temp {
+    flex-direction: column;
 }
