@@ -1,2 +1,2 @@
 # Weather App
- App that displays the current weather of the user's location.
+ App that displays the current weather of the user's location using Weatherbit API.
