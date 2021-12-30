@@ -12,14 +12,12 @@
 
 <body>
     <div class="head">
-        <h1>Current Weather:</h1>
+        <h1 id="last-update"></h1>
     </div>
 
     <div class="area">
         <h1 class="area-timezone" id="areaZone">loading..</h1>
         <canvas class="icon1" width="128" height="128"></canvas>
-
-
     </div>
 
 
@@ -27,35 +25,42 @@
         <div class="degree">
             <h2 id="displayDegree" class="degrees">loading..</h2>
 
+            <table border="0" align="center" class="shmaizer">
+
+                <tr>
+                    <td><label class="container" id="UV">
+                        </label></td>
+                    <td><label class="container" id="hide1" hidden>
+                        </label></td>
+                </tr>
+                <tr>
+                    <td><label class="container" id="Wind">
+                        </label></td>
+                    <td><label class="container" id="hide2" hidden>
+                        </label></td>
+                </tr>
+                <tr>
+                    <td><label class="container" id="AQ">
+                        </label></td>
+                    <td><label class="container" id="hide3" hidden>
+                        </label></td>
+                </tr>
+            </table>
+
         </div>
-        <div class="descript" id="weatherDescription">loading..</div>
+
     </div>
 
     <div class="wind">
         <h1 class="speed" id="windSpeed">loading..</h1>
-
         <div class="windIkon">
             <canvas class="windIcon" width="248" height="128"></canvas>
         </div>
-
-
     </div>
 
-    <div class="checkboxes">
-        <table border="1" align="center">
-            <tr>
-                <td>
-                    <button class="converterButton" onclick="">Convert metric/imperial</button>
-                    <span class="checkmark"></span>
-                    </label>
-                </td>
-            </tr>
-
-        </table>
-
+    <div class="converter">
+        <button class="converterButton" onclick="">Convert metric/imperial</button>
     </div>
-
-
 
     <script src="skycons.js"></script>
     <script src="script.js"></script>

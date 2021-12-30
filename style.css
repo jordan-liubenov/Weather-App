@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Readex+Pro:wght@300;400&display=swap');
+
+
 * {
     margin: 0;
     padding: 0;
@@ -36,29 +39,31 @@ body {
 
 .temp {
     background:rgba(124, 55, 131, 0.459);
-    flex-direction: column;
-    
+    flex-direction: column;    
 }
-
 
 .degree {
     display: flex;
     align-items: center;
-    cursor: pointer;
     justify-content: space-around;
 }
 
-
 .degree h2{
-    font-size: 50px;
+    font-size: 90px;
     justify-content: space-around;
     align-items: center;
     display: flex;
 }
 
+
 .descript {
     font-size: 25px;
+    float: right;
+   
+    display: flex;
+    justify-content: right;
 }
+
 
 
 .wind {
@@ -72,18 +77,51 @@ body {
     height: 20vh;
 }
 
-
-
 .windTest {
     display:block;
     justify-content: center;
     align-items: center;
 }
 
+.converter {
+    padding-top: 20px;
+}
 
 .converterButton {
     font-family: "Readex Pro";
     font-size: 25px;
+    color: blanchedalmond;
+
     cursor: pointer;
+    background-color: rgba(124, 55, 131, 0.459); 
+    border-radius: 10px;
+    border-color: rgba(0, 0, 0, 0);
+    padding: 10px;
+
     
 }
+
+.converterButton:active{
+    transform: scale(0.98);
+     box-shadow: -2px 11px 11px -2px rgba(24, 112, 228, 0.24);
+  }
+
+  .container{
+      padding: 20px;
+  }
+
+  .table {
+    border: 3px solid rgba(243, 243, 243, 0.103);
+    margin-bottom: 102px;
+    background:transparent;border:0
+  }
+  .table, td{
+      background-color: rgba(233, 99, 211, 0.219);
+      
+      text-align: center;
+      font-size: 19px;
+      border-radius: 2px;
+      
+  }
+
+  
