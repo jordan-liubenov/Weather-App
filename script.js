@@ -21,7 +21,6 @@ window.addEventListener('load', () => {
                     var today = new Date();
                     var time = today.getHours() + ":" + today.getMinutes(); //gets the current time (hour and minutes)
 
-
                     document.getElementById("last-update").innerHTML = "Last updated " + time;
 
                     const windSpeedKM = (information.data[0].wind_spd).toString();
