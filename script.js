@@ -1,10 +1,19 @@
 const API_KEY = '4f298c2ad69a4d5ab0d55f013858af47';
 
+let units = ["metric", "imperial"];
+
+let currentUnit;
+
+let windSpeed;
+let temperature;
+
 window.addEventListener('load', () => {
 
     if (navigator.geolocation) { //if the user allows geolocation when they open the webpage, run code ->
 
         navigator.geolocation.getCurrentPosition(position => {
+
+            currentUnit = units[0];
 
             const longitude = position.coords.longitude; //get current geo-location of the user 
             const latitude = position.coords.latitude;
@@ -31,30 +40,23 @@ window.addEventListener('load', () => {
 
                     var time = hours + ":" + minutes; //gets the current time (hour and minutes)
 
-
                     document.getElementById("last-update").innerHTML = "Last updated " + time;
 
-                    const windSpeedKM = (information.data[0].wind_spd).toString();
-                    document.getElementById("windSpeed").innerHTML = "Wind speed: " + windSpeedKM + " km/h";
+                    windSpeed = (information.data[0].wind_spd).toString();
+                    document.getElementById("windSpeed").innerHTML = "Wind speed: " + windSpeed + " km/h";
 
                     const icon = (information.data[0].weather.icon).toString();
 
-                    const temperature = (Math.round(information.data[0].temp)).toString();
+                    temperature = (Math.round(information.data[0].temp)).toString();
                     document.getElementById("displayDegree").innerHTML = temperature + " C°";
 
-                    console.log(information);
-
                     const weatherInfo = (information.data[0].weather.description).toString()
-                    console.log(weatherInfo);
-                    //document.getElementById("weatherDescription").innerHTML = weatherInfo;
 
                     const areaZone = (information.data[0].timezone).toString();
                     document.getElementById("areaZone").innerHTML = areaZone + ` (${weatherInfo})`;
 
                     setIcon(icon, document.querySelector('.icon1'));
                     setWindIcon(document.querySelector('.windIcon'));
-
-                    console.log(information.data[0].wind_cdir);
 
                     const UV = (information.data[0].uv).toString();
                     document.getElementById("UV").innerHTML = "UV Index: " + UV + " ☼";
@@ -66,16 +68,10 @@ window.addEventListener('load', () => {
 
                     const airQuality = (information.data[0].aqi).toString();
                     document.getElementById("AQ").innerHTML = "Air Quality Index: " + airQuality;
-                    console.log(airQuality);
                 })
         })
 
-    } else {
-        document.getElementById("last-update").innerHTML = "Gathering info...";
-        document.getElementById("windSpeed").innerHTML = "Gathering info...";
-        document.getElementById("displayDegree").innerHTML = "Gathering info...";
-        document.getElementById("areaZone").innerHTML = "Gathering info...";
-    }
+    } 
 
     //sets icon for current weather 
     function setIcon(icon, iconID) {
@@ -123,15 +119,51 @@ function setWindIcon(iconID) {
 
 //west ⬅  north ⬆  east ➡  south ⬇
 function setWindArrow(windDirection) {
-    
+
     switch (windDirection.charAt(0)) {
         case 'W':
-            return ' ⬅';   
+            return ' ⬅';
         case 'N':
             return ' ⬆';
         case 'E':
             return ' ➡';
         case 'S':
-            return ' ⬇';  
+            return ' ⬇';
     }
+}
+
+
+function convertUnits() {
+    if (currentUnit === units[0]) {
+        currentUnit = convertToImperial(temperature, windSpeed)
+
+    } else if (currentUnit === units[1]) {
+        currentUnit =  convertToMetric(temperature, windSpeed);
+    }
+}
+
+//convert Celsius to Fahrenheit : ((degrees)°C × 9/5) + 32 = (degrees)°F
+//convert KM to miles: KM / 1.609;
+function convertToImperial(temp, speed) {
+
+    temp = ((temperature) * 0.95) + 32;
+    speed = (speed / 1.609).toFixed(1);
+
+    document.getElementById("displayDegree").innerHTML = temp + " F°";
+    document.getElementById("windSpeed").innerHTML = "Wind speed: " + speed + " mph";
+
+    console.log(`converted to imperial`);
+    return units[1];
+}
+//document.getElementById("displayDegree").innerHTML = ;    document.getElementById("windSpeed").innerHTML =;
+
+//convert Fahrenheit to Celsius: ((degrees)°F − 32) × 5/9 = (degrees)°C
+//convert miles to KM: miles * 1.609;
+function convertToMetric() {
+    document.getElementById("displayDegree").innerHTML = temperature + " C°";
+
+    document.getElementById("windSpeed").innerHTML = "Wind speed: " + windSpeed + " km/h";
+
+    console.log(`converted to metric`);
+    return units[0];
 }
