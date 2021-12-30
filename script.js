@@ -17,15 +17,15 @@ window.addEventListener('load', () => {
                     return information.json(); //returns data as text object
 
                 }).then(information => {
-                    
+
                     var today = new Date();
                     var minutes = (today.getMinutes()).toString();
                     var hours = (today.getHours()).toString();
 
-                    if(minutes.length < 2){
+                    if (minutes.length < 2) {
                         minutes = "0" + minutes;
                     }
-                    if(hours.length < 2){
+                    if (hours.length < 2) {
                         hours = "0" + hours;
                     }
 
@@ -57,10 +57,12 @@ window.addEventListener('load', () => {
                     console.log(information.data[0].wind_cdir);
 
                     const UV = (information.data[0].uv).toString();
-                    document.getElementById("UV").innerHTML = "UV Index: " + UV;
+                    document.getElementById("UV").innerHTML = "UV Index: " + UV + " ☼";
 
                     const windDirection = (information.data[0].wind_cdir).toString();
-                    document.getElementById("Wind").innerHTML = "Wind direction: " + windDirection;
+                    const arrow = setWindArrow(windDirection);
+
+                    document.getElementById("Wind").innerHTML = "Wind direction: " + windDirection + arrow;
 
                     const airQuality = (information.data[0].aqi).toString();
                     document.getElementById("AQ").innerHTML = "Air Quality Index: " + airQuality;
@@ -83,10 +85,10 @@ window.addEventListener('load', () => {
             || icon === "r02d" || icon === "r02d" || icon === "r03d" || icon === "r03d") { //rain
             return icons.set(iconID, Skycons.RAIN);
 
-        } else if (icon === "s05d" || icon === "s05n") { 
+        } else if (icon === "s05d" || icon === "s05n") {
             return icons.set(iconID, Skycons.SLEET);
 
-        } else if (icon === "c01d") { 
+        } else if (icon === "c01d") {
             return icons.set(iconID, Skycons.CLEAR_DAY);
 
         } else if (icon === "c01n") {
@@ -111,10 +113,25 @@ window.addEventListener('load', () => {
             return icons.set(iconID, Skycons.CLOUDY); //default to cloudy icon if the current icon isn't featured in skycons pack
         }
     }
-
-    function setWindIcon(iconID) {
-        const wind = new Skycons({ color: "blanchedalmond" });
-        wind.play();
-        return wind.set(iconID, Skycons.WIND);
-    }
 })
+
+function setWindIcon(iconID) {
+    const wind = new Skycons({ color: "blanchedalmond" });
+    wind.play();
+    return wind.set(iconID, Skycons.WIND);
+}
+
+//west ⬅  north ⬆  east ➡  south ⬇
+function setWindArrow(windDirection) {
+    
+    switch (windDirection.charAt(0)) {
+        case 'W':
+            return ' ⬅';   
+        case 'N':
+            return ' ⬆';
+        case 'E':
+            return ' ➡';
+        case 'S':
+            return ' ⬇';  
+    }
+}
