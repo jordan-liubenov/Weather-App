@@ -19,7 +19,18 @@ window.addEventListener('load', () => {
                 }).then(information => {
                     
                     var today = new Date();
-                    var time = today.getHours() + ":" + today.getMinutes(); //gets the current time (hour and minutes)
+                    var minutes = (today.getMinutes()).toString();
+                    var hours = (today.getHours()).toString();
+
+                    if(minutes.length < 2){
+                        minutes = "0" + minutes;
+                    }
+                    if(hours.length < 2){
+                        hours = "0" + hours;
+                    }
+
+                    var time = hours + ":" + minutes; //gets the current time (hour and minutes)
+
 
                     document.getElementById("last-update").innerHTML = "Last updated " + time;
 
