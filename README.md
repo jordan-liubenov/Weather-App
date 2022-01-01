@@ -11,5 +11,5 @@
  
  -Air Quality index.
  
- ![alt text](https://ibb.co/L9MjBNk)
+ ![alt text](https://i.ibb.co/SV2YHfs/degrees-Celsius.png)
  
