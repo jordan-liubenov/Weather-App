@@ -26,7 +26,7 @@ body {
 }
 
 body {
-    background: linear-gradient(270deg, rgb(141, 84, 207), rgb(76, 94, 199));
+    background: linear-gradient(270deg, rgb(153, 94, 219), rgb(113, 76, 199));
     background-size: 400% 400%;
 
     -webkit-animation: AnimationName 7s ease infinite;
@@ -92,6 +92,7 @@ body {
 
 
 .wind {
+    background:rgba(124, 55, 131, 0.459);
     display: flex;
     border-radius: 20px;
     justify-content: space-around;
@@ -140,7 +141,7 @@ body {
     background:transparent;border:0
   }
   .table, td{
-      background-color: rgba(233, 99, 211, 0.219);
+    background:rgba(97, 55, 131, 0.459);
       
       text-align: center;
       font-size: 19px;
