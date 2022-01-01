@@ -30,6 +30,10 @@ window.addEventListener('load', () => {
                     return information.json(); //returns data as text object
 
                 }).then(information => {
+                    console.log(information);
+
+                    const city = information.data[0].city_name;
+                    const country = information.data[0].country_code;
 
                     var today = new Date();
                     var minutes = (today.getMinutes()).toString();
@@ -57,7 +61,7 @@ window.addEventListener('load', () => {
                     const weatherInfo = (information.data[0].weather.description).toString()
 
                     const areaZone = (information.data[0].timezone).toString();
-                    document.getElementById("areaZone").innerHTML = areaZone + ` (${weatherInfo})`;
+                    document.getElementById("areaZone").innerHTML = `${country}/${city}` + ` (${weatherInfo})`;
 
                     setIcon(icon, document.querySelector('.icon1'));
                     setWindIcon(document.querySelector('.windIcon'));
