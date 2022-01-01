@@ -3,13 +3,13 @@
  
  **-Current location's weather**
  
- -The current temperature.
+ **-The current temperature.**
  
- -The current wind speed.
+ **-The current wind speed. **
  
- -UV Ray intensity.
+ **-UV Ray intensity. **
  
- -Air Quality index.
+ **-Air Quality index. **
  
  ![alt text](https://i.ibb.co/SV2YHfs/degrees-Celsius.png)
  
