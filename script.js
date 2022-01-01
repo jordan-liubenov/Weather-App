@@ -8,9 +8,10 @@ let windSpeed;
 let temperature;
 
 const rainSound = document.getElementById("rain");
-
+const cricketSound = document.getElementById("crickets");
 
 window.addEventListener('load', () => {
+
 
     if (navigator.geolocation) { //if the user allows geolocation when they open the webpage, run code ->
 
@@ -46,7 +47,7 @@ window.addEventListener('load', () => {
                     document.getElementById("last-update").innerHTML = `Last updated ${time}`;
 
                     windSpeed = (information.data[0].wind_spd).toString();
-                    document.getElementById("windSpeed").innerHTML = `Wind speed: ${windSpeed} km/h`;
+                    document.getElementById("windSpeed").innerHTML = `Wind speed: ${windSpeed}km/h`;
 
                     const icon = (information.data[0].weather.icon).toString();
 
@@ -158,7 +159,7 @@ function convertToImperial(temp, speed) {
     speed = (speed / 1.609).toFixed(1);
 
     document.getElementById("displayDegree").innerHTML = temp.toFixed(0) + " F°";
-    document.getElementById("windSpeed").innerHTML = "Wind speed: " + speed + " mph";
+    document.getElementById("windSpeed").innerHTML = "Wind speed: " + speed + "mph";
 
     console.log(`converted to imperial`);
     return units[1];
@@ -169,7 +170,7 @@ function convertToImperial(temp, speed) {
 function convertToMetric() {
     document.getElementById("displayDegree").innerHTML = temperature + " C°";
 
-    document.getElementById("windSpeed").innerHTML = "Wind speed: " + windSpeed + " km/h";
+    document.getElementById("windSpeed").innerHTML = "Wind speed: " + windSpeed + "km/h";
 
     console.log(`converted to metric`);
     return units[0];

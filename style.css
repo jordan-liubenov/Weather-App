@@ -150,8 +150,76 @@ body {
   }
 
 
+  @media all and (max-width:768px){
+
+    .head {
+        font-size: 20px;
+        justify-content: center;
+        flex-direction: column;
+        margin-bottom: 40px;
+    }
 
 
 
-  
+    .area,
+    .temp {
+        background:rgba(97, 55, 131, 0.459);
+        border-radius: 20px;
+        height: 20vh;
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        font-size: 11px;
+        padding-left: 10px;
+    }
+    
+    .temp {
+        background:rgba(124, 55, 131, 0.459);
+        flex-direction: column;    
+    }
+    
+    .degree {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        height: 17vh;
+    }
+    
+    .degree h2{
+        font-size: 45px;
+        justify-content: space-around;
+        align-items: center;
+        display: flex;
+    }
 
+    .descript {
+        float: right;
+        height: 17vh;
+        display: flex;
+        justify-content: right;
+    }
+    
+    
+    
+    .wind {
+        background:rgba(124, 55, 131, 0.459);
+        display: flex;
+        border-radius: 20px;
+        justify-content: space-around;
+        align-items: center;
+        background:rgba(97, 55, 131, 0.459);
+        width: 100%;
+        height: 17vh;
+        font-size: 11px;
+        padding-left: 10px;
+    }
+    
+    .windTest {
+        display:block;
+        justify-content: center;
+        align-items: center;
+        
+    }
+    
+  }
