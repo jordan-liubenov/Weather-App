@@ -3,8 +3,6 @@
  
  **-Current location's weather**
  
- **-The current temperature.**
- 
  **-The current wind speed.**
  
  **-UV Ray intensity.**
