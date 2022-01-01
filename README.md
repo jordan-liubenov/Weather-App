@@ -5,11 +5,16 @@
  
  **-The current temperature.**
  
- **-The current wind speed. **
+ **-The current wind speed.**
  
- **-UV Ray intensity. **
+ **-UV Ray intensity.**
  
- **-Air Quality index. **
+ **-Air Quality index.**
+ 
+ **-Wind Direction.**
  
  ![alt text](https://i.ibb.co/SV2YHfs/degrees-Celsius.png)
  
+  **-Features conversion between metric/imperial unit systems.**
+  
+  ![alt text](https://i.ibb.co/pf5QGGV/degrees-Fahrenheit.png)
