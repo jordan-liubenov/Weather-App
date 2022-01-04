@@ -7,6 +7,8 @@ let currentUnit;
 let windSpeed;
 let temperature;
 
+
+
 const rainSound = document.getElementById("rain");
 const cricketSound = document.getElementById("crickets");
 
@@ -35,9 +37,9 @@ window.addEventListener('load', () => {
                     const city = information.data[0].city_name;
                     const country = information.data[0].country_code;
 
-                    var today = new Date();
-                    var minutes = (today.getMinutes()).toString();
-                    var hours = (today.getHours()).toString();
+                    let today = new Date();
+                    let minutes = (today.getMinutes()).toString();
+                    let hours = (today.getHours()).toString();
 
                     if (minutes.length < 2) {
                         minutes = "0" + minutes;
@@ -60,7 +62,7 @@ window.addEventListener('load', () => {
 
                     const weatherInfo = (information.data[0].weather.description).toString()
 
-                    const areaZone = (information.data[0].timezone).toString();
+                  //const areaZone = (information.data[0].timezone).toString();
                     document.getElementById("areaZone").innerHTML = `${country}/${city}` + ` (${weatherInfo})`;
 
                     setIcon(icon, document.querySelector('.icon1'));
@@ -72,13 +74,12 @@ window.addEventListener('load', () => {
                     const windDirection = (information.data[0].wind_cdir).toString();
                     const arrow = setWindArrow(windDirection);
 
-                    document.getElementById("Wind").innerHTML = `Wind direction: ${windDirection} ${arrow}`;
+                    document.getElementById("Wind").innerHTML = `Wind Direction: ${windDirection} ${arrow}`;
 
                     const airQuality = (information.data[0].aqi).toString();
                     document.getElementById("AQ").innerHTML = `Air Quality Index: ${airQuality}`;
                 })
         })
-
     }
 
     //sets icon for current weather 
@@ -86,6 +87,7 @@ window.addEventListener('load', () => {
 
         const icons = new Skycons({ color: "blanchedalmond" });
         icons.play();
+
 
         if (icon === "r01n" || icon === "r01d" || icon === "r06d" || icon === "r06n" || icon === "r04d" || icon === "r04n"
             || icon === "r02d" || icon === "r02d" || icon === "r03d" || icon === "r03d") {
@@ -122,6 +124,8 @@ window.addEventListener('load', () => {
 
             return icons.set(iconID, Skycons.CLOUDY); //default to cloudy icon if the current icon isn't featured in skycons pack
         }
+
+        
     }
 })
 
