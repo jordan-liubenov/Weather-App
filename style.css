@@ -29,22 +29,22 @@ body {
     background: linear-gradient(270deg, rgb(153, 94, 219), rgb(113, 76, 199));
     background-size: 400% 400%;
 
-    -webkit-animation: AnimationName 7s ease infinite;
-    -moz-animation: AnimationName 7s ease infinite;
-    animation: AnimationName 7s ease infinite;
+    -webkit-animation: anim 7s ease infinite;
+    -moz-animation: anim 7s ease infinite;
+    animation: anim 7s ease infinite;
 }
 
-@-webkit-keyframes AnimationName {
+@-webkit-keyframes anim {
     0%{background-position:0% 50%}
     50%{background-position:100% 50%}
     100%{background-position:0% 50%}
 }
-@-moz-keyframes AnimationName {
+@-moz-keyframes anim {
     0%{background-position:0% 50%}
     50%{background-position:100% 50%}
     100%{background-position:0% 50%}
 }
-@keyframes AnimationName {
+@keyframes anim {
     0%{background-position:0% 50%}
     50%{background-position:100% 50%}
     100%{background-position:0% 50%}
