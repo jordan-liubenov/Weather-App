@@ -67,6 +67,17 @@ body {
     flex-direction: column;    
 }
 
+.forecast {
+    background:rgba(124, 55, 131, 0.459);
+    flex-direction: column;   
+    border-radius: 20px;
+    height: 20vh;
+    width: 50%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center; 
+}
+
 .degree {
     display: flex;
     align-items: center;
@@ -146,9 +157,14 @@ body {
       text-align: center;
       font-size: 19px;
       border-radius: 2px;
-      
   }
 
+  .fa-thermometer-three-quarters{
+    color:rgb(250, 250, 250);
+    margin: 20px;
+    
+   
+  }
 
   @media all and (max-width:768px){
 

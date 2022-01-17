@@ -24,8 +24,19 @@ window.addEventListener('load', () => {
 
             const apiCall = `https://api.weatherbit.io/v2.0/current?lat=${latitude}&lon=${longitude}&key=${API_KEY}`; //send the geo-information to the api
 
-            fetch(apiCall) //fetches the data collected from the api call to weatherbit
+            const forecastApi = `https://api.weatherbit.io/v2.0/forecast/daily?lat=${latitude}&lon=${longitude}&key=${API_KEY}`;
+            fetch(forecastApi)
+                .then(information => {
+                    return information.json();
+                }).then(information => {
+                    console.log(information);
+                    //console.log(information.data[0].)
 
+                })
+
+
+
+            fetch(apiCall) //fetches the data collected from the api call to weatherbit
                 .then(information => {
                     return information.json(); //returns data as text object
 
@@ -50,7 +61,7 @@ window.addEventListener('load', () => {
 
                     document.getElementById("last-update").innerHTML = `Last updated ${time}`;
 
-                    windSpeed = (information.data[0].wind_spd).toString();
+                    windSpeed = (information.data[0].wind_spd).toFixed(1).toString();
                     document.getElementById("windSpeed").innerHTML = `Wind speed: ${windSpeed}km/h`;
 
                     const icon = (information.data[0].weather.icon).toString();
@@ -119,7 +130,6 @@ window.addEventListener('load', () => {
             return icons.set(iconID, Skycons.SNOW); //snowing
 
         } else {
-
             return icons.set(iconID, Skycons.CLOUDY); //default to cloudy icon if the current icon isn't featured in skycons pack
         }
     }
@@ -131,7 +141,7 @@ function setWindIcon(iconID) {
     return wind.set(iconID, Skycons.WIND);
 }
 
-const directions = { West: ' ⬅', North: ' ⬆', South: ' ⬇', East: ' ➡'};
+const directions = { West: ' ⬅', North: ' ⬆', South: ' ⬇', East: ' ➡' };
 
 function setWindArrow(windDirection) {
     switch (windDirection.charAt(0)) {
