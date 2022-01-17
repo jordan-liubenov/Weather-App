@@ -57,11 +57,12 @@ window.addEventListener('load', () => {
                         hours = "0" + hours;
                     }
 
-                    var time = hours + ":" + minutes; //gets the current time (hour and minutes)
+                    let time = hours + ":" + minutes; //gets the current time (hour and minutes)
 
                     document.getElementById("last-update").innerHTML = `Last updated ${time}`;
 
-                    windSpeed = (information.data[0].wind_spd).toFixed(1).toString();
+                    windSpeed = (information.data[0].wind_spd).toFixed(1);
+                    console.log(windSpeed);
                     document.getElementById("windSpeed").innerHTML = `Wind speed: ${windSpeed}km/h`;
 
                     const icon = (information.data[0].weather.icon).toString();
