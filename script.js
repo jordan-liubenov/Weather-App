@@ -41,14 +41,13 @@ window.addEventListener('load', () => {
                     return information.json(); //returns data as text object
 
                 }).then(information => {
-                    console.log(information);
 
                     const city = information.data[0].city_name;
                     const country = information.data[0].country_code;
 
-                    var today = new Date();
-                    var minutes = (today.getMinutes()).toString();
-                    var hours = (today.getHours()).toString();
+                    let today = new Date();
+                    let minutes = (today.getMinutes()).toString();
+                    let hours = (today.getHours()).toString();
 
                     if (minutes.length < 2) {
                         minutes = "0" + minutes;
@@ -62,12 +61,11 @@ window.addEventListener('load', () => {
                     document.getElementById("last-update").innerHTML = `Last updated ${time}`;
 
                     windSpeed = (information.data[0].wind_spd).toFixed(1);
-                    console.log(windSpeed);
                     document.getElementById("windSpeed").innerHTML = `Wind speed: ${windSpeed}km/h`;
 
                     const icon = (information.data[0].weather.icon).toString();
 
-                    temperature = (Math.round(information.data[0].temp)).toString();
+                    temperature = (Math.ceil(information.data[0].temp)).toString();
                     document.getElementById("displayDegree").innerHTML = `${temperature} C°`;
 
                     const weatherInfo = (information.data[0].weather.description).toString()
@@ -185,7 +183,7 @@ function convertToImperial(temp, speed) {
 function convertToMetric() {
     document.getElementById("displayDegree").innerHTML = temperature + " C°";
 
-    document.getElementById("windSpeed").innerHTML = "Wind speed: " + windSpeed + "km/h";
+    document.getElementById("windSpeed").innerHTML = "Wind speed: " + windSpeed.toFixed(1) + "km/h";
 
     console.log(`converted to metric`);
     return units[0];
