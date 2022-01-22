@@ -60,8 +60,8 @@ window.addEventListener('load', () => {
 
                     document.getElementById("last-update").innerHTML = `Last updated ${time}`;
 
-                    windSpeed = (information.data[0].wind_spd).toFixed(1);
-                    document.getElementById("windSpeed").innerHTML = `Wind speed: ${windSpeed}km/h`;
+                    windSpeed = (information.data[0].wind_spd);
+                    document.getElementById("windSpeed").innerHTML = `Wind speed: ${windSpeed.toFixed(1)}km/h`;
 
                     const icon = (information.data[0].weather.icon).toString();
 
