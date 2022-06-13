@@ -29,9 +29,7 @@ window.addEventListener('load', () => {
                 .then(information => {
                     return information.json();
                 }).then(information => {
-                    console.log(information);
                     //console.log(information.data[0].)
-
                 })
 
 
@@ -174,7 +172,6 @@ function convertToImperial(temp, speed) {
     document.getElementById("displayDegree").innerHTML = temp.toFixed(0) + " F°";
     document.getElementById("windSpeed").innerHTML = "Wind speed: " + speed + "mph";
 
-    console.log(`converted to imperial`);
     return units[1];
 }
 
@@ -185,6 +182,5 @@ function convertToMetric() {
 
     document.getElementById("windSpeed").innerHTML = "Wind speed: " + windSpeed.toFixed(1) + "km/h";
 
-    console.log(`converted to metric`);
     return units[0];
 }
